@@ -8,7 +8,7 @@
 
 ## Description
 
-This week I learned how to build an API with C#/ .Net Core, as well as how to build an MVC client with full CRUD functionality to interact with an API. This API I built contains national and state parks in the western United States. It allows users to GET, POST, PUT, and DELETE parks.
+This week I learned how to build an API with C#/ .Net Core, as well as how to build an MVC client with full CRUD functionality to interact with an API. This API I built contains national and state parks in the western United States. It allows users to GET, POST, PUT, and DELETE parks. There is also CRUD functionality for campgrounds, but at this time the relationship between parks and campgrounds is not established. There is a simple MVC web application to interact with the Parks API.
 
 
 
@@ -86,7 +86,8 @@ http://localhost:5000/api/parks?state=Oregon&type=state
 
 ### HTTP Request
 
-```GET /api/parks/page
+```
+GET /api/parks/page
 ```
 
 ### Path Parameters
