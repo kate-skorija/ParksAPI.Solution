@@ -21,24 +21,24 @@ namespace ParksClient.Models
     }
     public static async Task Post(string newPark)
     {
-      RestClient client = new RestClient("http://localhost5000/api");
+      RestClient client = new RestClient("http://localhost:5000/api");
       RestRequest request = new RestRequest($"parks", Method.POST);
       request.AddHeader("Content-Type", "application/json");
       request.AddJsonBody(newPark);
       var response = await client.ExecuteTaskAsync(request);
     }
-    public static async Task Put(int id, string thisPark)
+ public static async Task Put(int id, string newPark)
     {
       RestClient client = new RestClient("http://localhost:5000/api");
       RestRequest request = new RestRequest($"parks/{id}", Method.PUT);
       request.AddHeader("Content-Type", "application/json");
-      request.AddJsonBody(thisPark);
+      request.AddJsonBody(newPark);
       var response = await client.ExecuteTaskAsync(request);
     }
     public static async Task Delete(int id)
     {
       RestClient client = new RestClient("http://localhost:5000/api");
-      RestRequest request = new RestRequest($"animals/{id}", Method.DELETE);
+      RestRequest request = new RestRequest($"parks/{id}", Method.DELETE);
       request.AddHeader("Content-Type", "application/json");
       var response = await client.ExecuteTaskAsync(request);
     }

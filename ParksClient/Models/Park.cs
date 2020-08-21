@@ -37,7 +37,7 @@ namespace ParksClient.Models
       string jsonPark = JsonConvert.SerializeObject(park);
       var apiCallTask = ApiHelper.Post(jsonPark);
     }
-    public static void Put(Park park)
+  public static void Put(Park park)
     {
       string jsonPark = JsonConvert.SerializeObject(park);
       var apiCallTask = ApiHelper.Put(park.ParkId, jsonPark);

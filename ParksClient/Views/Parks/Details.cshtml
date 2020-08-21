@@ -10,10 +10,14 @@
   <ul>
     <li>@Html.DisplayNameFor(model => model.State): @Html.DisplayFor(model => model.State)</li>
     <li><a href="@Model.Website">Official Website</a></li>
-    @using (Html.BeginForm("Delete", "Parks"))
+    @* @using (Html.BeginForm("Delete", "Parks"))
     {
       @Html.Hidden("id", @Model.ParkId)
       <input class="btn btn-dark btn-sm" type="submit" value="Delete" /><br>
-    }
+    } *@
   </ul>
+  <div class="btn-group" role="group">
+    <button class="btn btn-dark">@Html.ActionLink("Edit Park", "Edit", new { id = @Model.ParkId })</button>
+    <button class="btn btn-dark">@Html.ActionLink("Delete Park", "Delete", new { id = @Model.ParkId })</button>
+  </div>
 </div>

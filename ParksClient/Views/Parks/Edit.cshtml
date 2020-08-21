@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@model ParksClient.Models.Park
+
+<div class="content">
+  <h1>Edit Review:</h1>
+
+<form action="/Parks/Details/@(Model.ParkId)" method="post">
+  <label for="name">Name:</label>
+  <input id="name" name="name" type="text" class="form-control" required>
+  <label for="state">State:</label>
+  <input id="state" name="state" type="text" class="form-control" required>
+  <label for="type">Type of Park:</label>
+  <select name="type" class="form-control" required>
+    <option value="national">National Park</option>
+    <option value="state">State Park</option>
+  </select>
+  <label for="website">Website:</label>
+  <input id="website" name="website" type="text" class="form-control" required>
+  <button class="btn btn-dark" type="submit">Save</button>
+</form>
+
+</div>
