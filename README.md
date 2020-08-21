@@ -40,7 +40,9 @@ As a user, I want to look up random parks just for fun.
 
 
 
-## HTTP Request
+## Parks
+
+### HTTP Request
 
 ```GET /api/parks
    POST /api/parks
@@ -49,25 +51,20 @@ As a user, I want to look up random parks just for fun.
    DELETE /api/parks/{id}
 ```
 
-
-## Path Parameters
+### Path Parameters
 
 | Parameter     | Type      | Default  | Required  | Description                |
 | ------------- | --------- | -------- | ----------|-----------------           |
 |   state       | string    | none     | false     | Return matches by state    |
 |   type        | string    | national, state    | false     | Return matches by type   |
 
-
-
-## Example Query
+### Example Query
 
 ```
 http://localhost:5000/api/parks?state=Oregon&type=state
 ```
 
-
-
-## Sample JSON Response
+### Sample JSON Response
 
 ```
 {
@@ -79,9 +76,25 @@ http://localhost:5000/api/parks?state=Oregon&type=state
 }
 ```
 
+
+
 ## Pagination
 
+### HTTP Request
 
+```GET /api/parks/page
+```
+
+### Path Parameters
+
+| Parameter     | Type      | Default  | Required  | Description                |
+| ------------- | --------- | -------- | ----------|-----------------           |
+|   pageNumber       | int    | none     | false     | Returns all results on a specific page    |
+|   pageSize       | int    | 10   | false     | Changes number of results per page, max of 10   |
+
+```
+http://localhost:5000/api/parks/page?pageNumber=2&pageSize=5
+```
 
 ## Known Bugs
 

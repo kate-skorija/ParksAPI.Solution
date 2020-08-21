@@ -29,6 +29,18 @@ namespace ParksAPI.Controllers
         }
       return query.ToList();
     }
+
+    [HttpGet("page")]
+    public ActionResult GetPages([FromQuery] PaginationFilter filter)
+    {
+      var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
+      var pagedData = _db.Parks
+                .Skip((validFilter.PageNumber - 1) * validFilter.PageSize)
+                .Take(validFilter.PageSize)
+                .ToList();
+      return Ok(pagedData);
+    }
+
     [HttpPost]
     public void Post([FromBody] Park park)
     {
