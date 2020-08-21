@@ -64,7 +64,7 @@ namespace ParksAPI.Models
               new Park { ParkId = 47, Name = "Snow Canyon State Park", State = "Utah", Type = "state", Website = "https://stateparks.utah.gov/parks/snow-canyon/" },
               new Park { ParkId = 48, Name = "Kodachrome Basin State Park", State = "Utah", Type = "state", Website = "https://stateparks.utah.gov/parks/kodachrome-basin/" },
               new Park { ParkId = 49, Name = "Coral Pink Sand Dunes State Park", State = "Utah", Type = "state", Website = "https://stateparks.utah.gov/parks/coral-pink/" },
-              new Park { ParkId = 49, Name = "Dead Horse Point State Park", State = "Utah", Type = "state", Website = "https://stateparks.utah.gov/parks/dead-horse/" }
+              new Park { ParkId = 50, Name = "Dead Horse Point State Park", State = "Utah", Type = "state", Website = "https://stateparks.utah.gov/parks/dead-horse/" }
             );
         }
     }

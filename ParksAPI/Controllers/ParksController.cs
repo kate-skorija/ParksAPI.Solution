@@ -16,9 +16,18 @@ namespace ParksAPI.Controllers
       _db = db;
     }
     [HttpGet]
-    public ActionResult<IEnumerable<Park>> Get()
+    public ActionResult<IEnumerable<Park>> Get(string state, string type)
     {
-      return _db.Parks.ToList();
+      var query = _db.Parks.AsQueryable();
+      if (state != null)
+        {
+          query = query.Where(entry => entry.State == state);
+        }
+      if (type != null)
+        {
+          query = query.Where(entry => entry.Type == type);
+        }
+      return query.ToList();
     }
     [HttpPost]
     public void Post([FromBody] Park park)
