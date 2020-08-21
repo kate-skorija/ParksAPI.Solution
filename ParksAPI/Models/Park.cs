@@ -6,7 +6,6 @@ namespace ParksAPI.Models
         public string Name { get; set; }
         public string State { get; set; }
         public string Type { get; set; }
-        public bool Camping { get; set; }
         public string Website { get; set; }
     }
 }
