@@ -162,6 +162,7 @@ There is no pagination in place for campgrounds at this time.
 *  Authentication with Identity
 *  Pagination URLs for MVC
 *  Search functionality
+*  Ability to display parks by state in MVC
 
 
 
