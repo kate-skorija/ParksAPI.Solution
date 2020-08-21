@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ParksClient.Models;
@@ -26,7 +27,7 @@ namespace ParksClient.Controllers
     public IActionResult Create(Park park)
     {
       Park.Post(park);
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
 
     public IActionResult Details(int id)
@@ -51,7 +52,7 @@ namespace ParksClient.Controllers
     public IActionResult Delete(int id)
     {
       Park.Delete(id);
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
   }
 }

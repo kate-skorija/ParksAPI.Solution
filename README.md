@@ -25,18 +25,22 @@ This week I learned how to build an API with C#/ .Net Core, as well as how to bu
 
 4. Within the project, navigate to the ParksAPI directory, and type `dotnet restore`, then `dotnet build`. 
 
-5. Return to your terminal for the ParksAPI directory, and run the command `dotnet ef database update`. This will create a `parks` database in MySql Workbench. Open or refresh MySql Workbench and confirm that the new database has been created.
+5. Return to your terminal for the ParksAPI directory, and run the command `dotnet ef database update`. This will create a `kate_skorija` database in MySql Workbench. Open or refresh MySql Workbench and confirm that the new database has been created.
 
-6. Type `dotnet run` into the terminal. Click on the provided local host link in the terminal to view the web application in your browser. 
+6. Type `dotnet watch run` into your terminal. At this time, the API is usable in an API developement tool such as Postman. See the instructions below on queries for Parks and Campgrounds. 
+
+7. If you would like to view the Parks API in your browser, navigate to the ParksClient folder, and type `dotnet restore`, then `dotnet build`, and finally `dotnet watch run`. Make sure that the local host for ParksAPI is still running, then follow the link in the ParksClient terminal to view the MVC in the browser. At this time, only information on parks (not campgrounds) is available in the web application.
 
 
 
 ## User Stories
 
 As a user, I want to GET and POST state and national parks.
-As a user, I want to GET a list of parks by name, county, or state.
-As a user, I want to PUT and DELETE reviews, but only if I wrote them. 
-As a user, I want to look up random parks just for fun.
+As a user, I want to GET a list of parks by state or type.
+As a user, I want to PUT and DELETE parks.
+As a user, I want to GET and POST campgrounds.
+As a user, I want to GET a list of campgrounds by state.
+As a user, I want to PUT and DELETE campgrounds.
 
 
 
@@ -78,7 +82,7 @@ http://localhost:5000/api/parks?state=Oregon&type=state
 
 
 
-## Pagination
+## Pagination for Parks
 
 ### HTTP Request
 
@@ -110,11 +114,59 @@ http://localhost:5000/api/parks/page?pageNumber=2&pageSize=5
 }
 ```
 
+## Campgrounds
+
+### HTTP Request
+
+```GET /api/campgrounds
+   POST /api/campgrounds
+   GET /api/campgrounds/{id}
+   PUT /api/campgrounds/{id}
+   DELETE /api/campgrounds/{id}
+```
+
+### Path Parameters
+
+| Parameter     | Type      | Default  | Required  | Description                |
+| ------------- | --------- | -------- | ----------|-----------------           |
+|     state       | string    | none     | false     | Return matches by state    |
+
+
+### Example Query
+
+```
+http://localhost:5000/api/campgrounds?state=washington
+```
+
+### Sample JSON Response
+
+```
+{
+  "campgroundId": 2,
+  "name": "Mowich Lake",
+  "state": "Washington",
+  "park": null,
+  "parkId": 2
+  }
+```
+
+### Pagination for Campgrounds
+
+There is no pagination in place for campgrounds at this time.
+
+
+##  Stretch Goals
+
+*  Get relationship between parks and campground working
+*  Authentication with Identity
+*  Pagination URLs for MVC
+*  Search functionality
+
 
 
 ## Known Bugs
 
-There are no known bugs at this time.
+The relationship between parks and campgrounds is not currently functioning, but the user can still query both parks and campgrounds in Postman, and Parks in the web application.
 
 
 
@@ -132,6 +184,7 @@ If there are any issues or questions, please reach out to me through [my GitHub 
 *  [ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-3.1)
 *  [SQL/MySqlWorkbench](https://docs.microsoft.com/en-us/sql/?view=sql-server-ver15)
 *  [Entity](https://docs.microsoft.com/en-us/ef/)
+*  [Postman](https://www.postman.com/)
 
 
 

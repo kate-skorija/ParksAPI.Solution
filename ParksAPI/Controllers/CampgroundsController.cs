@@ -16,9 +16,14 @@ namespace ParksAPI.Controllers
       _db = db;
     }
     [HttpGet]
-    public ActionResult<IEnumerable<Campground>> Get()
+    public ActionResult<IEnumerable<Campground>> Get(string state)
     {
-      return _db.Campgrounds.ToList();
+      var query = _db.Campgrounds.AsQueryable();
+      if (state != null)
+        {
+          query = query.Where(entry => entry.State == state);
+        }
+      return query.ToList();
     }
 
 
