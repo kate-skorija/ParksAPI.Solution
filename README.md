@@ -92,9 +92,25 @@ http://localhost:5000/api/parks?state=Oregon&type=state
 |   pageNumber       | int    | none     | false     | Returns all results on a specific page    |
 |   pageSize       | int    | 10   | false     | Changes number of results per page, max of 10   |
 
+### Example Query
+
 ```
 http://localhost:5000/api/parks/page?pageNumber=2&pageSize=5
 ```
+
+### Sample JSON Response
+
+```
+{
+  "parkId": 6,
+  "name": "Grand Teton National Park",
+  "state": "Wyoming",
+  "type": "national",
+  "website": "https://www.nps.gov/grte/index.htm"
+}
+```
+
+
 
 ## Known Bugs
 
