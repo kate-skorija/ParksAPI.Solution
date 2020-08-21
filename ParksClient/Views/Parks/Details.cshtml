@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model ParksClient.Models.Park
+@using ParksClient.Models;
+
+<div class="content">
+  <h2>@Html.DisplayFor(model => model.Name)</h2>
+  <ul>
+    <li>@Html.DisplayNameFor(model => model.State): @Html.DisplayFor(model => model.State)</li>
+    <li><a href="@Model.Website">Official Website</a></li>
+    @using (Html.BeginForm("Delete", "Parks"))
+    {
+      @Html.Hidden("id", @Model.ParkId)
+      <input class="btn btn-dark btn-sm" type="submit" value="Delete" /><br>
+    }
+  </ul>
+</div>

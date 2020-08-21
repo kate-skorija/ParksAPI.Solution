@@ -1,0 +1,14 @@
+@model List<ParksClient.Models.Park>
+
+<div class="content">
+  <h1>Parks of the American West</h1>
+  <h3>@Html.ActionLink("Create Park Listing", "Create")</h3>
+  <h2>All Parks:</h2>
+
+  <ol>
+  @foreach(Park park in Model)
+  {
+    <li>@Html.ActionLink($"{park.Name}", "Details", new { id = park.ParkId })</li>
+  }
+  </ol>
+</div>

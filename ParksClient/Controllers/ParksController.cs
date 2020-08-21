@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ParksClient.Models;
 
 namespace ParksClient.Controllers
@@ -12,7 +13,7 @@ namespace ParksClient.Controllers
   {
     public IActionResult Index()
     {
-      var allParks = Place.GetParks();
+      var allParks = Park.GetParks();
       return View(allParks);
     }
 
