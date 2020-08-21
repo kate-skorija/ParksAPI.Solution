@@ -23,5 +23,28 @@ namespace ParksClient.Models
 
       return parkList;
     }
+    public static Park GetDetails(int id)
+    {
+      var apiCallTask = ApiHelper.Get(id);
+      var result = apiCallTask.Result;
+
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Park park = JsonConvert.DeserializeObject<Park>(jsonResponse.ToString());
+      return park;
+    }
+    public static void Post(Park park)
+    {
+      string jsonPark = JsonConvert.SerializeObject(park);
+      var apiCallTask = ApiHelper.Post(jsonPark);
+    }
+    public static void Put(Park park)
+    {
+      string jsonPark = JsonConvert.SerializeObject(park);
+      var apiCallTask = ApiHelper.Put(park.ParkId, jsonPark);
+    }
+    public static void Delete(int id)
+    {
+      var apiCallTask = ApiHelper.Delete(id);
+    }
   }
 }
