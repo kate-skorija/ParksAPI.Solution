@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace ParksAPI.Models
 {
     public class Park
@@ -7,5 +9,11 @@ namespace ParksAPI.Models
         public string State { get; set; }
         public string Type { get; set; }
         public string Website { get; set; }
+
+        public virtual ICollection<Campground> Campgrounds { get; set; }
+        public Park()
+        {
+            this.Campgrounds = new HashSet<Campground>();
+        }
     }
 }

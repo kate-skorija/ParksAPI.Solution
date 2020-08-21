@@ -10,6 +10,7 @@ namespace ParksAPI.Models
         }
 
         public DbSet<Park> Parks { get; set; }
+        public DbSet<Campground> Campgrounds { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -65,6 +66,12 @@ namespace ParksAPI.Models
               new Park { ParkId = 48, Name = "Kodachrome Basin State Park", State = "Utah", Type = "state", Website = "https://stateparks.utah.gov/parks/kodachrome-basin/" },
               new Park { ParkId = 49, Name = "Coral Pink Sand Dunes State Park", State = "Utah", Type = "state", Website = "https://stateparks.utah.gov/parks/coral-pink/" },
               new Park { ParkId = 50, Name = "Dead Horse Point State Park", State = "Utah", Type = "state", Website = "https://stateparks.utah.gov/parks/dead-horse/" }
+            );
+
+            builder.Entity<Campground>().HasData(
+              new Campground { CampgroundId = 1, Name = "Cougar Rock Campground", ParkId = 2, State = "Washington" },
+              new Campground { CampgroundId = 2, Name = "Mowich Lake", ParkId = 2, State = "Washington" },
+              new Campground { CampgroundId = 3, Name = "La Wis Wis", ParkId = 2, State = "Washington" }
             );
         }
     }
